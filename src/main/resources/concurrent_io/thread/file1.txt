@@ -1,0 +1,1 @@
+Danh Sách Tệp Tin: Mảng filePaths chứa đường dẫn tới các tệp tin cần đọc. Bạn cần đảm bảo rằng các tệp tin này tồn tại trong thư mục làm việc hoặc cung cấp đường dẫn đầy đủ.

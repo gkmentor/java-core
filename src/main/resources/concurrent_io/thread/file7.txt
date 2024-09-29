@@ -1,0 +1,1 @@
+Dưới đây là cách sử dụng ExecutorService với một Fixed Thread Pool để đọc nhiều tệp tin đồng thời.

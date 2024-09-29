@@ -1,0 +1,1 @@
+Tạo Và Khởi Chạy Threads: Duyệt qua từng đường dẫn tệp tin, tạo một FileReaderTask và khởi chạy một Thread mới cho mỗi tác vụ.

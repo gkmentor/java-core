@@ -1,0 +1,2 @@
+Giả sử bạn có các tệp tin file1.txt đến file5.txt trong thư mục dự án của bạn. Khi chạy lớp ConcurrentFileReader, bạn sẽ thấy các Threads khác nhau đọc và in nội dung các tệp tin đồng thời.
+

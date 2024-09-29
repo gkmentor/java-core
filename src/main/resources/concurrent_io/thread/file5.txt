@@ -1,0 +1,1 @@
+Sử dụng ExecutorService thay vì tự tạo và quản lý các Thread riêng lẻ giúp quản lý Threads hiệu quả hơn, đặc biệt khi số lượng Threads lớn hoặc cần kiểm soát tài nguyên hệ thống.

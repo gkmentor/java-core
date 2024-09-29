@@ -1,0 +1,1 @@
+Thông Báo: In ra thông báo rằng tất cả các Threads đã được khởi chạy.
