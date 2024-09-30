@@ -1,4 +1,4 @@
-package org.hagiakinh.thread;
+package org.hagiakinh.thread.demo;
 
 public class ThreadDemo {
 
