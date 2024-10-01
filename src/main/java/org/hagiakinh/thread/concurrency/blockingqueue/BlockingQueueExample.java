@@ -17,10 +17,5 @@ public class BlockingQueueExample {
         // java.util.concurrent.PriorityBlockingQueue
         // java.util.concurrent.SynchronousQueue
 
-
-
-
-
-
     }
 }

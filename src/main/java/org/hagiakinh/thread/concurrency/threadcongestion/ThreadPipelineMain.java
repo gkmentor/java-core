@@ -1,9 +1,10 @@
 package org.hagiakinh.thread.concurrency.threadcongestion;
 
-import com.jenkov.java.concurrency.threadpipeline.Step1Processor;
-import com.jenkov.java.concurrency.threadpipeline.Step2Processor;
+
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import org.hagiakinh.thread.concurrency.threadpipeline.Step1Processor;
+import org.hagiakinh.thread.concurrency.threadpipeline.Step2Processor;
 
 public class ThreadPipelineMain {
 
