@@ -2,10 +2,10 @@ package org.hagiakinh.spring.auto_di.service;
 
 import java.time.Instant;
 import lombok.extern.slf4j.Slf4j;
-import org.hagiakinh.spring.auto_di.annotation.Component;
+import org.hagiakinh.spring.auto_di.annotation.Service;
 
 @Slf4j
-@Component
+@Service
 public class RestaurantService {
 
   public void doSomething() {

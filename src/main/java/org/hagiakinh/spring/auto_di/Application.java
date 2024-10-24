@@ -4,14 +4,14 @@ package org.hagiakinh.spring.auto_di;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.hagiakinh.spring.auto_di.annotation.Autowired;
-import org.hagiakinh.spring.auto_di.annotation.Component;
+import org.hagiakinh.spring.auto_di.annotation.Service;
 import org.hagiakinh.spring.auto_di.loader.ContextLoader;
 import org.hagiakinh.spring.auto_di.loader.Runner;
 import org.hagiakinh.spring.auto_di.service.OrderService;
 import org.hagiakinh.spring.auto_di.service.RestaurantService;
 
 @Slf4j
-@Component
+@Service
 public class Application implements Runner {
 
   @Autowired

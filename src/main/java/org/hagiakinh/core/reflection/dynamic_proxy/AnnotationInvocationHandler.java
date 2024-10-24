@@ -12,7 +12,6 @@ class AnnotationInvocationHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("AnnotationInvocationHandler call");
         // Kiểm tra xem phương thức có annotation @Loggable hay không
         if (method.isAnnotationPresent(Loggable.class)) {
             // Lấy giá trị của annotation @Loggable

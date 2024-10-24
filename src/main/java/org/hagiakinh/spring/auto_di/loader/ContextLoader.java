@@ -7,7 +7,7 @@ import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.hagiakinh.spring.auto_di.annotation.Autowired;
-import org.hagiakinh.spring.auto_di.annotation.Component;
+import org.hagiakinh.spring.auto_di.annotation.Service;
 import org.hagiakinh.spring.auto_di.annotation.PostConstruct;
 import org.reflections.Reflections;
 
@@ -26,8 +26,8 @@ public class ContextLoader {
   }
 
   public synchronized void load(String scanPackage) {
-    val reflections = new Reflections(scanPackage);
-    val classes = reflections.getTypesAnnotatedWith(Component.class);
+    val reflections = new Reflections(scanPackage); // load toàn bộ package
+    val classes = reflections.getTypesAnnotatedWith(Service.class); // lấy toàn bộ class
 
     initiateInstance(classes);
     for (val entry : nameToInstance.entrySet()) {
@@ -42,7 +42,7 @@ public class ContextLoader {
     for (val clazz : classes) {
       try {
         val c = Class.forName(clazz.getName());
-        val instance = c.getDeclaredConstructor().newInstance();
+        val instance = c.getDeclaredConstructor().newInstance(); // khởi tạo
         nameToInstance.put(clazz.getName(), instance);
       } catch (Exception ex) {
         throw new RuntimeException("Cannot initialize new instance for " + clazz.getName());
