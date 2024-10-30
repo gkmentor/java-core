@@ -1,5 +1,6 @@
 package org.hagiakinh.core.collection.equals_hashcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,5 +24,7 @@ public class Main {
         String abc2 = new String("abc");
         System.out.println(abc1.equals(abc2));
         System.out.println(abc1 == abc2);
+
+        Object object = new Object();
     }
 }

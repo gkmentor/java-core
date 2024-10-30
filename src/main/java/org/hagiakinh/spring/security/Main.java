@@ -24,7 +24,7 @@ public class Main {
                 .setNextHandler(authorizationHandler);
 
         // Create a sample request
-        Request request = new Request("/protected-resource", "GET", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFraW5oMDgyMyIsImlhdCI6MTcyOTczNjY0MywiZXhwIjoxNzI5NzcyNjQzfQ.lXi7QU8OQgRPIclkaQoq2RtAU_zWC4SUe6RauSyhbwM", null);
+        Request request = new Request("/protected-resource", "GET", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaWFraW5oMDgyMyIsImlhdCI6MTcyOTc3NzEzNywiZXhwIjoxNzI5ODEzMTM3fQ.yMsT-Oj7WaUjr-Mb_neZutzEU8g7oDATrOoePOdHNXg", null);
         Response response = new Response(200, "OK");
 
         // Process the request through the chain

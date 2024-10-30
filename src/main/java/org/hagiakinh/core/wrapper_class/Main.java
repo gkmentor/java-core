@@ -16,7 +16,7 @@ public class Main {
         // In ra giá trị
         System.out.println("Giá trị nguyên thủy: " + primitiveInt);
         System.out.println("Giá trị autoboxing: " + wrappedInt);
-        System.out.println("Giá trị tự động autoboxing: " + autoBoxedInt);
+        System.out.println("Giá trị tự động autoboxing: " + autoBoxedInt.intValue());
         System.out.println("Giá trị sau khi parse: " + parsedInt);
 
         // unboxing

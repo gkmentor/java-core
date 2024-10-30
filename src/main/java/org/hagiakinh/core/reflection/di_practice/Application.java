@@ -4,14 +4,14 @@ package org.hagiakinh.core.reflection.di_practice;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.hagiakinh.core.reflection.di_practice.annotation.Autowire;
-import org.hagiakinh.core.reflection.di_practice.annotation.Component;
+import org.hagiakinh.core.reflection.di_practice.annotation.Service;
 import org.hagiakinh.core.reflection.di_practice.loader.ContextLoader;
 import org.hagiakinh.core.reflection.di_practice.loader.Runner;
 import org.hagiakinh.core.reflection.di_practice.service.OrderService;
 import org.hagiakinh.core.reflection.di_practice.service.RestaurantService;
 
 @Slf4j
-@Component
+@Service
 public class Application implements Runner {
 
   @Autowire

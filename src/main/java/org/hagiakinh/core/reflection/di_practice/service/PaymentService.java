@@ -1,10 +1,10 @@
 package org.hagiakinh.core.reflection.di_practice.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.hagiakinh.core.reflection.di_practice.annotation.Component;
+import org.hagiakinh.core.reflection.di_practice.annotation.Service;
 
 @Slf4j
-@Component
+@Service
 public class PaymentService {
 
   public void doSomething() {

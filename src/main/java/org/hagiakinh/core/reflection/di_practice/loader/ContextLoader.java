@@ -7,7 +7,7 @@ import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.hagiakinh.core.reflection.di_practice.annotation.Autowire;
-import org.hagiakinh.core.reflection.di_practice.annotation.Component;
+import org.hagiakinh.core.reflection.di_practice.annotation.Service;
 import org.hagiakinh.core.reflection.di_practice.annotation.PostConstruct;
 import org.reflections.Reflections;
 
@@ -27,7 +27,7 @@ public class ContextLoader {
 
   public synchronized void load(String scanPackage) {
     val reflections = new Reflections(scanPackage);
-    val classes = reflections.getTypesAnnotatedWith(Component.class);
+    val classes = reflections.getTypesAnnotatedWith(Service.class);
 
     initiateInstance(classes);
     for (val entry : nameToInstance.entrySet()) {

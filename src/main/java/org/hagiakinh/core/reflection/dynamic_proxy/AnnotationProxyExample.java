@@ -15,7 +15,6 @@ public class AnnotationProxyExample {
 
         // Gọi các phương thức trên proxy
         proxyInstance.add(5, 3);  // Sẽ ghi log với giá trị từ annotation
-        proxyInstance.subtract(10, 4);  // Sẽ ghi log với giá trị từ annotation
         proxyInstance.print();
     }
 }

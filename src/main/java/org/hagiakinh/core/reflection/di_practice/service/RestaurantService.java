@@ -2,10 +2,10 @@ package org.hagiakinh.core.reflection.di_practice.service;
 
 import java.time.Instant;
 import lombok.extern.slf4j.Slf4j;
-import org.hagiakinh.core.reflection.di_practice.annotation.Component;
+import org.hagiakinh.core.reflection.di_practice.annotation.Service;
 
 @Slf4j
-@Component
+@Service
 public class RestaurantService {
 
   public void doSomething() {
