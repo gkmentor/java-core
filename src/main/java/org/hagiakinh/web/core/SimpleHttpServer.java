@@ -1,10 +1,8 @@
 package org.hagiakinh.web.core;
 
-import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import org.hagiakinh.web.core.dispatcher.Dispatcher;
 import org.hagiakinh.web.core.model.Request;
-import org.hagiakinh.web.core.model.Response;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,7 +10,7 @@ import java.net.InetSocketAddress;
 
 public class SimpleHttpServer {
 
-    public static void main(String[] args) throws IOException, IOException {
+    public static void main(String[] args) throws IOException {
         Dispatcher dispatcher = new Dispatcher();
 
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
