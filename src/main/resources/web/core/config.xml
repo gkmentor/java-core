@@ -1,0 +1,10 @@
+<routes>
+    <route>
+        <path>/home</path>
+        <handler>org.hagiakinh.web.core.controller.HomeHandler</handler>
+    </route>
+    <route>
+        <path>/about</path>
+        <handler>org.hagiakinh.web.core.controller.AboutHandler</handler>
+    </route>
+</routes>
