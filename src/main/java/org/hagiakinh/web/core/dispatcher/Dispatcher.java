@@ -1,5 +1,11 @@
 package org.hagiakinh.web.core.dispatcher;
 
+import lombok.extern.slf4j.Slf4j;
+import org.hagiakinh.web.core.filter.AuthFilter;
+import org.hagiakinh.web.core.filter.Filter;
+import org.hagiakinh.web.core.filter.FilterChain;
+import org.hagiakinh.web.core.model.Request;
+import org.hagiakinh.web.core.model.Response;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
@@ -9,18 +15,20 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 public class Dispatcher {
 
-    private Map<String, RequestHandler> routeHandlers = new HashMap<>();
+    private final Map<String, RequestHandler> routeHandlers = new HashMap<>();
+    private final FilterChain filterChain = new FilterChain();
+
 
     public Dispatcher() {
-        loadConfig("src/main/resources/web/core/config.xml");
+        loadConfig();
     }
 
-    // Phương thức đọc cấu hình từ XML và tạo các handler
-    private void loadConfig(String configPath) {
+    private void loadConfig() {
         try {
-            File configFile = new File(configPath);
+            File configFile = new File("src/main/resources/web/core/config.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(configFile);
@@ -31,23 +39,39 @@ public class Dispatcher {
                 String path = doc.getElementsByTagName("path").item(i).getTextContent();
                 String handlerClass = doc.getElementsByTagName("handler").item(i).getTextContent();
 
-                // Tạo một instance của lớp handler và lưu vào map
                 Class<?> clazz = Class.forName(handlerClass);
                 RequestHandler handler = (RequestHandler) clazz.getDeclaredConstructor().newInstance();
                 routeHandlers.put(path, handler);
             }
+
+            NodeList filterList = doc.getElementsByTagName("filter");
+            for (int i = 0; i < filterList.getLength(); i++) {
+                String filterClass = filterList.item(i).getTextContent();
+
+                Class<?> clazz = Class.forName(filterClass);
+                Filter filter = (Filter) clazz.getDeclaredConstructor().newInstance();
+                filterChain.addFilter(filter);
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
     }
 
-    // Phương thức xử lý yêu cầu
-    public String dispatch(String path) {
-        RequestHandler handler = routeHandlers.get(path);
-        if (handler != null) {
-            return handler.handle();
-        } else {
-            return "404 - Page Not Found";
+    public String dispatch(Request request) {
+        Response response = new Response();
+
+        filterChain.doFilter(request, response);
+        filterChain.setIndex(0);
+
+        if (response.getContent().isEmpty()) {
+            RequestHandler handler = routeHandlers.get(request.getPath());
+            if (handler != null) {
+                response.write(handler.handle());
+            } else {
+                response.write("404 - Page Not Found");
+            }
         }
+
+        return response.getContent();
     }
 }
